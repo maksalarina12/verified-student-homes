@@ -32,7 +32,7 @@ export const Route = createFileRoute("/kos/$id")({
 });
 
 function DetailPage() {
-  const { kos } = Route.useLoaderData();
+  const { kos } = Route.useLoaderData() as { kos: (typeof KOS_LIST)[number] };
   const [active, setActive] = useState(0);
 
   return (
