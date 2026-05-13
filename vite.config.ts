@@ -6,10 +6,17 @@
 // You can pass additional config via defineConfig({ vite: { ... } }) if needed.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
-// Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
-// @cloudflare/vite-plugin builds from this — wrangler.jsonc main alone is insufficient.
+// GitHub Pages base path. Set DEPLOY_TARGET=gh-pages during the GH Pages build
+// to apply the subpath; left empty in Lovable preview/production so the live
+// preview keeps working.
+const ghPagesBase = "/kosfinder-your-student-home/";
+const isGhPages = process.env.DEPLOY_TARGET === "gh-pages";
+
 export default defineConfig({
   tanstackStart: {
     server: { entry: "server" },
+  },
+  vite: {
+    base: isGhPages ? ghPagesBase : "/",
   },
 });
