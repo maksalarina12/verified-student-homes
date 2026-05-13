@@ -2,10 +2,9 @@ import { QueryClient } from "@tanstack/react-query";
 import { createRouter } from "@tanstack/react-router";
 import { routeTree } from "./routeTree.gen";
 
-// Match the GitHub Pages base path. Only applied when building for GH Pages
-// (DEPLOY_TARGET=gh-pages). Vite inlines import.meta.env at build time.
+// Ini basepath gue ganti ke nama repo lu yang baru. Jangan ngadi-ngadi diganti lagi!
 const isGhPages = import.meta.env.VITE_DEPLOY_TARGET === "gh-pages";
-const basepath = isGhPages ? "/kosfinder-your-student-home" : undefined;
+const basepath = isGhPages ? "/verified-student-homes" : undefined;
 
 export const getRouter = () => {
   const queryClient = new QueryClient();
