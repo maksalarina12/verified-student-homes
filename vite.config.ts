@@ -8,10 +8,7 @@ export default defineConfig({
     },
   },
   vite: {
-    // Basepath ini HARUS sama persis kayak nama repo lu
     base: process.env.DEPLOY_TARGET === "gh-pages" ? "/verified-student-homes/" : "/",
-    build: {
-      outDir: "dist",
-    },
+    // OUTDIR DIHAPUS BIAR TANSTACK START BIKIN FOLDER DIST/CLIENT SECARA OTOMATIS
   },
 });
